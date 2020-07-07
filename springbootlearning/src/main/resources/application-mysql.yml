@@ -1,0 +1,36 @@
+my:
+  name: xiagao
+  message: 你好
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  datasource:
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    #mysql数据库版本大于8.0使用
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+    # mysql版本小于8.0使用
+    driver-class-name: com.mysql.jdbc.Driver
+
+    #serverTimezone=UTC,mysql数据库版本大于8.0并且在安装数据库是未指定时区会默认用美国时区，所以在这里配置时区
+    url: jdbc:mysql://123.207.30.36:3306/springDB
+    username: sunquan
+    password: sunlan..
+    # 配置初始化大小、最小、最大
+    tomcat:
+      maxActive: 20
+      initialSize: 5
+      minIdle: 5
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false

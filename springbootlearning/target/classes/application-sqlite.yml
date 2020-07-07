@@ -1,0 +1,35 @@
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  datasource:
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:springbootlearning/src/main/resources/database/database.sqlite
+    username:
+    password:
+    tomcat:
+      max-active: 300
+      max-wait: 60000
+      initial-size: 2
+      validation-query: SELECT 1
+    dbcp2:
+      pool-prepared-statements: false
+      validation-query: SELECT 1
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    #如果你用的是Hibernate4，那么可以在这个地址https://github.com/EnigmaBridge/hibernate4-sqlite-dialect 找到Hibernate4-sqlite，
+    #直接添加依赖就好。我们使用的是Hibernate5，需要添加如下几个类，设置对应的Hibernate5对sqlite的方言
+    database-platform: com.xiagao.core.sqlite.SQLiteDialect
+#mybatis配置
+mybatis:
+  type-aliases-package: com.xiagao.model.pojo.mybatis
+  mapper-locations: classpath:mybatis/mappers/*Mapper.xml
+
+

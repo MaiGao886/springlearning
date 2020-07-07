@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: mysql
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  security:
+    user:
+      name: admin
+      password: 111111
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8080
